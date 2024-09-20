@@ -1,7 +1,7 @@
 import { CorsOptions } from 'cors'
+import 'dotenv/config'
 
 export const corsOpptions: CorsOptions = {
-    origin:
-        process.env.NODE_ENV === 'production' ? 'url' : 'http://localhost:3000',
+    origin: process.env.URL,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }

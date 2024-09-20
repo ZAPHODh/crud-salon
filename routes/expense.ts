@@ -5,14 +5,22 @@ import { createExpense } from '../controllers/expenses/createExpense'
 import { updateExpense } from '../controllers/expenses/updateExpense'
 import { deleteExpense } from '../controllers/expenses/deleteExpense'
 import { getExpenses } from '../controllers/expenses/getExpenses'
-const router = express.Router()
+import { validExpenseId } from '../middlewares/expenses/validExpenseId'
+import { getExpense } from '../controllers/expenses/getExpense'
+const router = express.Router({ mergeParams: true })
 
 router.get('/', getExpenses)
+router.get('/:expenseId', validExpenseId, getExpense)
+router.post('/', validExpenseBody, validId, createExpense)
 
-router.post('/', validExpenseBody, createExpense)
+router.put(
+    '/:expenseId',
+    validId,
+    validExpenseId,
+    validExpenseBody,
+    updateExpense
+)
 
-router.put('/:id', validId, validExpenseBody, updateExpense)
-
-router.delete('/:id', validId, deleteExpense)
+router.delete('/:expenseId', validExpenseId, validId, deleteExpense)
 
 export default router

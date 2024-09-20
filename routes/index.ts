@@ -1,14 +1,12 @@
-import express from 'express'
-import incomesRouter from './incomes.js'
-import expensesRouter from './expenses.js'
-import professionalsRouter from './professionals.js'
-import reportsRouter from './reports.js'
+import salonRoutes from './salon'
+import serviceRoutes from './service'
+import expenseRoutes from './expense'
+import { Router } from 'express'
 
-const router = express.Router()
+const router = Router()
 
-router.use('/incomes', incomesRouter)
-router.use('/expenses', expensesRouter)
-router.use('/professionals', professionalsRouter)
-router.use('/reports', reportsRouter)
+router.use('/salons', salonRoutes)
+router.use('/salons/:salonId/services', serviceRoutes)
+router.use('/salons/:salonId/expenses', expenseRoutes)
 
 export default router

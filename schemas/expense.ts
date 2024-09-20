@@ -1,7 +1,7 @@
 import { Schema } from 'mongoose'
 
 export const expenseSchema = new Schema<Expense>({
-    date: { type: Date, required: true },
+    name: { type: 'String', required: true },
     type: {
         type: String,
         enum: ['fixed', 'variable'],
@@ -9,5 +9,5 @@ export const expenseSchema = new Schema<Expense>({
     },
     category: { type: String, required: true },
     amount: { type: Number, required: true },
-    notes: { type: String },
+    expense: { type: String, required: true },
 })
