@@ -1,5 +1,4 @@
 import { Request, Response } from 'express'
-import { salonModel } from '../../models/salon'
 import { expenseModel } from '../../models/expense'
 
 export const getExpense = async (req: Request, res: Response) => {

@@ -18,6 +18,7 @@ declare global {
 
     interface Salon extends Document {
         name: string
+        fee: number
         openDays: WeekDays[]
         hoursWorkedPerDay: number
         hoursWorkedInMonth: number

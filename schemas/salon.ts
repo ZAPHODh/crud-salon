@@ -15,6 +15,7 @@ export const salonSchema = new Schema<Salon>({
         ],
         required: true,
     },
+    fee: { type: 'Number', required: true, default: 0 },
     hoursWorkedPerDay: { type: Number, required: true },
     hoursWorkedInMonth: { type: Number, required: true },
     expenses: [{ type: Schema.Types.ObjectId, ref: 'Expenses' }],
