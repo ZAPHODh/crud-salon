@@ -5,8 +5,8 @@ export const validExpenseBody = (
     res: Response,
     next: NextFunction
 ) => {
-    const { amount, category, type, expense, name } = req.body as Expense
-    if (!amount || !category || !type || !expense || !name) {
+    const { amount, category, type, name } = req.body as Expense
+    if (!amount || !category || !type || !name) {
         return res.status(400).json({ error: 'missing props in the body' })
     }
     next()
