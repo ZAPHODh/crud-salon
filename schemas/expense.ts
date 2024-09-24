@@ -9,5 +9,4 @@ export const expenseSchema = new Schema<Expense>({
     },
     category: { type: String, required: true },
     amount: { type: Number, required: true },
-    expense: { type: String, required: true },
 })
