@@ -12,7 +12,10 @@ import mongoose from 'mongoose'
 const app = express()
 const port = process.env.PORT
 
-mongoose.connect(process.env.MONGO_CONNECT)
+mongoose
+    .connect(process.env.MONGO_CONNECT)
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => console.error('Failed to connect to MongoDB', err))
 
 app.use(helmet())
 app.use(limiter)
