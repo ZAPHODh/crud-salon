@@ -14,6 +14,7 @@ export const addModel = async <DocType extends Document>(
         await salonModel.findByIdAndUpdate(salonId, {
             $push: { [name]: savedModel._id },
         })
+        return savedModel
     } catch (error) {
         throw new Error(`Error adding expense to salon:${error}`)
     }

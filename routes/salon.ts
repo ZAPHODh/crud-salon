@@ -7,11 +7,13 @@ import { validSalonBody } from '../middlewares/salon/validBody'
 import { updateSalon } from '../controllers/salon/updateSalon'
 import { deleteSalon } from '../controllers/salon/deleteSalon'
 import { addMonthHours } from '../middlewares/salon/addMonthHours'
+import { getSalonByOwner } from '../controllers/salon/getSalonByOwner'
+import { validEmail } from '../middlewares/salon/validEmail'
 
 const router = express.Router()
 
 router.get('/', getAllSalons)
-
+router.get('/:ownerEmail', validEmail, getSalonByOwner)
 router.get('/:salonId', validId, getSalon)
 
 router.post('/', validSalonBody, addMonthHours, createSalon)

@@ -16,6 +16,7 @@ declare global {
     }
 
     interface Salon extends Document {
+        owner: string
         name: string
         fee: number
         openDays: WeekDays[]
