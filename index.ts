@@ -3,7 +3,7 @@ import helmet from 'helmet'
 import router from './routes'
 import cors from 'cors'
 
-import { corsOpptions } from './lib/config/corsOptions'
+import { corsOptions } from './lib/config/corsOptions'
 import { limiter } from './lib/config/limiter'
 
 import 'dotenv/config'
@@ -19,7 +19,7 @@ mongoose
 
 app.use(helmet())
 app.use(limiter)
-app.use(cors(corsOpptions))
+app.use(cors(corsOptions))
 
 app.use('/', express.json(), router)
 
