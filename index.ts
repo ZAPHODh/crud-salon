@@ -21,7 +21,7 @@ app.use(helmet())
 app.use(limiter)
 app.use(cors(corsOptions))
 
-app.use('/', validIp, express.json(), router)
+app.use('/', validIp(process.env.ALLOWED_IP), express.json(), router)
 
 app.listen(port, () => {
     console.log(`Server running on port`, port)

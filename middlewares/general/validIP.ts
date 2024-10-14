@@ -1,31 +1,21 @@
 import { Request, Response, NextFunction } from 'express'
+import { IpCheck } from '../../lib/utils/checkIp'
 
-export const validIp = (req: Request, res: Response, next: NextFunction) => {
-    const requestIp = req.ip || req.socket.remoteAddress || ''
-    const allowedIpRange = process.env.ALLOWED_IP
+export const validIp = (allowedIps: string[] | string) => {
+    const allowedIpArray = Array.isArray(allowedIps) ? allowedIps : [allowedIps]
+    const checkFunctions = allowedIpArray.map(IpCheck)
 
-    const isIpAllowed = (ip: string, range: string): boolean => {
-        const [rangeBase, rangeBits] = range.split('/')
-        const ipBase = ip.split('.').map(Number)
-        const rangeBaseArr = rangeBase.split('.').map(Number)
+    return (req: Request, res: Response, next: NextFunction) => {
+        const requestIp = req.ip || req.socket.remoteAddress || ''
 
-        if (ipBase.length !== 4 || rangeBaseArr.length !== 4) {
-            return false
-        }
-
-        const mask = ~(2 ** (32 - parseInt(rangeBits, 10)) - 1)
-        const ipInt = ipBase.reduce((sum, part) => (sum << 8) + part, 0)
-        const rangeInt = rangeBaseArr.reduce(
-            (sum, part) => (sum << 8) + part,
-            0
+        const isAllowed = checkFunctions.some((checkFunction) =>
+            checkFunction(requestIp)
         )
 
-        return (ipInt & mask) === (rangeInt & mask)
+        if (isAllowed) {
+            next()
+        } else {
+            res.status(400).json({ error: 'Forbidden: IP not allowed' })
+        }
     }
-
-    if (isIpAllowed(requestIp, allowedIpRange)) {
-        return next()
-    }
-
-    res.status(403).send('Forbidden: IP not allowed')
 }
