@@ -23,9 +23,6 @@ importers:
       helmet:
         specifier: ^7.1.0
         version: 7.1.0
-      httperrors:
-        specifier: ^2.3.0
-        version: 2.3.0
       ip:
         specifier: ^2.0.1
         version: 2.0.1
@@ -283,10 +280,6 @@ packages:
   create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
 
-  createerror@1.3.0:
-    resolution: {integrity: sha512-w9UZUtkaGd8MfS7eMG7Sa0lV5vCJghqQfiOnwNVrPhbZScUp5h0jwYoAF933MKlotlG1JAJOCCT3xU6r+SDKNw==}
-    engines: {node: '>= 0.2.0'}
-
   cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -498,10 +491,6 @@ packages:
   http-errors@2.0.0:
     resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
     engines: {node: '>= 0.8'}
-
-  httperrors@2.3.0:
-    resolution: {integrity: sha512-U1WA9mlJb0ux9C5U4aNRJrNTWxSoBq2ypj3PNJeS1hTvrfUuCwXpaaF7WsqSf05LQi7HkE8E5FnDz1iWCQzgkQ==}
-    engines: {node: '>= 0.2.0'}
 
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -1129,8 +1118,6 @@ snapshots:
 
   create-require@1.1.1: {}
 
-  createerror@1.3.0: {}
-
   cross-spawn@7.0.3:
     dependencies:
       path-key: 3.1.1
@@ -1372,10 +1359,6 @@ snapshots:
       setprototypeof: 1.2.0
       statuses: 2.0.1
       toidentifier: 1.0.1
-
-  httperrors@2.3.0:
-    dependencies:
-      createerror: 1.3.0
 
   iconv-lite@0.4.24:
     dependencies:
