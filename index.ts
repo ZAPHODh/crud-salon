@@ -7,7 +7,6 @@ import mongoose from 'mongoose'
 
 import { corsOptions } from './lib/config/corsOptions'
 import { limiter } from './lib/config/limiter'
-import { validIp } from './middlewares/general/validIP'
 
 const app = express()
 const port = process.env.PORT
@@ -21,7 +20,7 @@ app.use(helmet())
 app.use(limiter)
 app.use(cors(corsOptions))
 
-app.use('/', validIp(process.env.ALLOWED_IP), express.json(), router)
+app.use('/', express.json(), router)
 
 app.listen(port, () => {
     console.log(`Server running on port`, port)
