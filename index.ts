@@ -19,7 +19,11 @@ mongoose
 app.use(helmet())
 app.use(limiter)
 app.use(cors(corsOptions))
-
+app.use((req, res, next) => {
+    const origin = req.get('Origin')
+    console.log(origin)
+    next()
+})
 app.use('/', express.json(), router)
 
 app.listen(port, () => {
