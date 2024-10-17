@@ -5,11 +5,12 @@ export const updateExpense = async (req: Request, res: Response) => {
     const { expenseId } = req.params
     try {
         const expense: Expense = req.body
-        const updatedExpense = await expenseModel.findByIdAndUpdate(
-            expenseId,
+        const updatedExpense = await expenseModel.findOneAndUpdate(
+            { _id: expenseId },
             expense,
             { new: true }
         )
+        console.log(expenseId, updatedExpense)
         if (!updatedExpense) {
             return res.status(404).json({ error: 'Expense not found' })
         }
