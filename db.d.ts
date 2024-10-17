@@ -1,5 +1,9 @@
 import { Document } from 'mongoose'
+
 declare global {
+    type Professional = {
+        und: number
+    }
     interface Expense extends Document {
         name: string
         type: 'fixed' | 'variable'
@@ -13,6 +17,7 @@ declare global {
         commission: number
         attachedExpenses: Expense[]
         duration: number
+        whoDo: 'manicure' | 'hairdresser'
     }
 
     interface Salon extends Document {
@@ -24,6 +29,10 @@ declare global {
         hoursWorkedInMonth: number
         expenses: Expense[]
         services: Service[]
+        professionals: {
+            manicure?: Professional
+            hairdresser?: Professional
+        }
     }
 
     type WeekDays =

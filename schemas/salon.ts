@@ -31,4 +31,8 @@ export const salonSchema = new Schema<Salon>({
     hoursWorkedInMonth: { type: Number, required: true },
     expenses: [{ type: Schema.Types.ObjectId, ref: 'Expenses' }],
     services: [{ type: Schema.Types.ObjectId, ref: 'Services' }],
+    professionals: {
+        manicure: { und: { type: Number, default: 0 } },
+        hairdresser: { und: { type: Number, default: 0 } },
+    },
 })
