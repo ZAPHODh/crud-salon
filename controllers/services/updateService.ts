@@ -2,11 +2,11 @@ import { Request, Response } from 'express'
 import { serviceModel } from '../../models/service'
 
 export const updateService = async (req: Request, res: Response) => {
-    const { id } = req.params
+    const { serviceId } = req.params
     try {
         const service: Service = req.body
-        const updatedService = await serviceModel.findOneAndUpdate(
-            { _id: id },
+        const updatedService = await serviceModel.findByIdAndUpdate(
+            serviceId,
             service,
             { new: true }
         )

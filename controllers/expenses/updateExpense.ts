@@ -2,15 +2,14 @@ import { Request, Response } from 'express'
 import { expenseModel } from '../../models/expense'
 
 export const updateExpense = async (req: Request, res: Response) => {
-    const { id } = req.params
+    const { expenseId } = req.params
     try {
         const expense: Expense = req.body
-        const updatedExpense = await expenseModel.findOneAndUpdate(
-            { _id: id },
+        const updatedExpense = await expenseModel.findByIdAndUpdate(
+            expenseId,
             expense,
             { new: true }
         )
-        console.log(updatedExpense, id)
         if (!updatedExpense) {
             return res.status(404).json({ error: 'Expense not found' })
         }
