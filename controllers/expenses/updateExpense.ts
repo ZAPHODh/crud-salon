@@ -10,7 +10,7 @@ export const updateExpense = async (req: Request, res: Response) => {
             expense,
             { new: true }
         )
-
+        console.log(updatedExpense)
         if (!updatedExpense) {
             return res.status(404).json({ error: 'Expense not found' })
         }
