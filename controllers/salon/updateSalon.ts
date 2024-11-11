@@ -3,9 +3,8 @@ import { salonModel } from '../../models/salon'
 
 export const updateSalon = async (req: Request, res: Response) => {
     const { salonId } = req.params
-    const newSalon = req.body as Partial<Salon>
-    console.log(newSalon)
     try {
+        const newSalon = req.body as Partial<Salon>
         const updatedSalon = await salonModel.findOneAndUpdate(
             { _id: salonId },
             newSalon,
