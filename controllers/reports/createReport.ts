@@ -19,7 +19,9 @@ export const createReport = async (req: Request, res: Response) => {
 
         const salon = await salonModel
             .findById(salonId)
-            .populate('expenses services')
+            .populate('expenses')
+            .populate('services')
+            .exec()
 
         if (!salon) {
             return res.status(404).json({ error: 'Salão não encontrado' })
