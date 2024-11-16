@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { reportModel } from '../../models/report'
 import { salonModel } from '../../models/salon'
-import { generateReportWithAI } from '../../lib/utils/generateRportWithAi'
+import { generateReportWithAI } from '../../lib/utils/generateReportWithAi'
 
 export const createReport = async (req: Request, res: Response) => {
     const { salonId } = req.params
