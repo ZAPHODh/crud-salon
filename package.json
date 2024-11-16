@@ -17,7 +17,8 @@
         "express": "^4.19.2",
         "express-rate-limit": "^7.4.0",
         "helmet": "^7.1.0",
-        "mongoose": "^8.6.1"
+        "mongoose": "^8.6.1",
+        "openai": "^4.72.0"
     },
     "devDependencies": {
         "@types/cors": "^2.8.17",

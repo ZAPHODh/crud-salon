@@ -1,14 +1,21 @@
-import { Document } from 'mongoose'
+import { Document, ObjectId } from 'mongoose'
 
 declare global {
     type Professional = {
         und: number
     }
+
     interface Expense extends Document {
         name: string
         type: 'fixed' | 'variable'
         category: string
         amount: number
+    }
+
+    interface Report extends Document {
+        salonId: ObjectId
+        createdAt: Date
+        reportContent: string
     }
 
     interface Service extends Document {

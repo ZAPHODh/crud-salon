@@ -3,6 +3,6 @@ namespace NodeJS {
         MONGO_CONNECT: string
         PORT: string
         URL: string
-        ALLOWED_IP: string
+        OPENAI_API_KEY: string
     }
 }
