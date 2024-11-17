@@ -27,16 +27,23 @@ export const generateReportWithAI = async (salon: Salon) => {
   **Serviços:**
   ${servicesDescription}
   
-  Considerando essas despesas e serviços, sugira maneiras de reduzir custos, otimizando o uso de recursos e aumentando a lucratividade.
+  Considerando essas despesas e serviços, sugira maneiras de reduzir custos, otimizando o uso de recursos e aumentando a lucratividade, de maneira personalizada com a relidade do salão. Se necessário,
+  utilize referências reais das despesas e serviços do salão.
   `
     const systemMessage = `
-    Você é um assistente financeiro que fornece análises detalhadas para salões de beleza. Ao gerar relatórios, organize a resposta em tópicos com subtítulos claros, como:
-    1. **Estratégia para Redução de Custos:**
-    2. **Sugestões de Otimização:**
-    3. **Aumento da Lucratividade:**
-    
-    Forneça sugestões práticas e baseadas em dados financeiros. As respostas devem ser claras, concisas e bem estruturadas. Evite informações vagas e apresente soluções diretas.
-    `
+  Você é um assistente financeiro especializado em fornecer relatórios estruturados. Ao gerar a resposta, organize a saída de acordo com as seguintes diretrizes:
+  
+  - Use **títulos** com Markdown para organizar as seções, como por exemplo:
+      - ## Estratégia para Redução de Custos
+      - ## Sugestões de Otimização
+      - ## Aumento da Lucratividade
+  
+  - Liste pontos importantes em listas ordenadas ou não ordenadas, com a indentação correta.
+  
+  - Certifique-se de que a resposta seja legível e fácil de seguir, utilizando espaços e quebras de linha apropriadas.
+
+  A resposta deve ser formatada de forma estruturada e clara, usando Markdown.
+  `
     try {
         const completion = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
