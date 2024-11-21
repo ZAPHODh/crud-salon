@@ -16,6 +16,7 @@ mongoose
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => console.error('Failed to connect to MongoDB', err))
 
+app.set('trust proxy', 1)
 app.use(helmet())
 app.use(limiter)
 app.use(cors(corsOptions))
