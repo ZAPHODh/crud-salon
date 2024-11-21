@@ -9,7 +9,7 @@ import { corsOptions } from './lib/config/corsOptions'
 import { limiter } from './lib/config/limiter'
 
 const app = express()
-const port = process.env.PORT
+const port = process.env.PORT || 4000
 
 mongoose
     .connect(process.env.MONGO_CONNECT)
