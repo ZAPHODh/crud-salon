@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "tsc",
-        "start": "npm run build && node ./dist/index.js",
+        "build": "pnpm install && pnpm tsc",
+        "start": "node dist/server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
